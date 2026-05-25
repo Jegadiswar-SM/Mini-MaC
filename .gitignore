@@ -1,0 +1,19 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# Verilator/Build Artifacts
+obj_dir/
+*.vcd
+*.o
+*.d
+Vsoc_top
+
+# Firmware binaries
+sw/*.elf
+sw/*.bin
+sw/*.hex
+
+# OS files
+.DS_Store

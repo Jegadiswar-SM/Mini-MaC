@@ -1,0 +1,6 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1779632415" />
+    <testcase name="pe_basic_test" classname="test_pe" file="/home/bolter/mini_mac_soc/dv/test_pe.py" lineno="5" time="0.0016362667083740234" sim_time_ns="91.0" ratio_time="55614.40536208655" />
+  </testsuite>
+</testsuites>
