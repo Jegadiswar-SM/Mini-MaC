@@ -90,6 +90,7 @@ module dma_master (
                     done_o <= 1;
                     state  <= IDLE;
                 end
+                default: state <= IDLE;
             endcase
         end
     end

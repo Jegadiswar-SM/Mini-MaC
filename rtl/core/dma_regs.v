@@ -56,6 +56,7 @@ module dma_regs (
                                     abort_o <= pwdata[1];
                                   end
                     ADDR_IRQ_ACK: irq_ack_o  <= pwdata[0];
+                    default:;
                 endcase
             end
         end

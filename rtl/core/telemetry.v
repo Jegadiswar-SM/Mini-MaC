@@ -71,7 +71,7 @@ module telemetry (
     // 4. APB Read Multiplexer
     always @(*) begin
         case (paddr[7:0])
-            8'h00: prdata = {30'd0, reset_trigger, en};
+            8'h00: prdata = {31'd0, en};  // bit[0]=enable; reset_trigger is write-only pulse
             8'h04: prdata = cycle_snap[31:0];
             8'h08: prdata = cycle_snap[63:32];
             8'h0C: prdata = mac_snap;

@@ -37,14 +37,15 @@ module apb_bus (
 
     // Response Multiplexer
     always @(*) begin
+        m_pready = 1'b1;
         case (s_psel)
-            6'b000001: {m_prdata, m_pready} = {s0_prdata, s0_pready};
-            6'b000010: {m_prdata, m_pready} = {s1_prdata, s1_pready};
-            6'b000100: {m_prdata, m_pready} = {s2_prdata, s2_pready};
-            6'b001000: {m_prdata, m_pready} = {s3_prdata, s3_pready};
-            6'b010000: {m_prdata, m_pready} = {s4_prdata, s4_pready};
-            6'b100000: {m_prdata, m_pready} = {s5_prdata, s5_pready};
-            default:   {m_prdata, m_pready} = {32'h0, 1'b1}; // Default ready for invalid adr
+            6'b000001: m_prdata = s0_prdata;
+            6'b000010: m_prdata = s1_prdata;
+            6'b000100: m_prdata = s2_prdata;
+            6'b001000: begin m_prdata = s3_prdata; m_pready = s3_pready; end
+            6'b010000: begin m_prdata = s4_prdata; m_pready = s4_pready; end
+            6'b100000: begin m_prdata = s5_prdata; m_pready = s5_pready; end
+            default:   m_prdata = 32'h0;
         endcase
     end
 endmodule

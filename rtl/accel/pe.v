@@ -1,4 +1,7 @@
-module pe (
+module pe #(
+    parameter ROW = 0,
+    parameter COL = 0
+) (
     input  wire        clk,
     input  wire        rst_n,
     input  wire        load_wgt,  
@@ -32,4 +35,5 @@ module pe (
             acc_out <= acc_in + $signed({{16{mul_reg[15]}}, mul_reg});
         end
     end
+
 endmodule

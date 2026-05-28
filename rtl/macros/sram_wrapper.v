@@ -10,6 +10,10 @@ module sram_wrapper #(
     input  wire [31:0] sram_din,
     output reg  [31:0] sram_dout
 );
+    // NOTE: For ASIC physical design, this behavioral model must be replaced
+    // with a foundry SRAM macro (e.g., sky130 SRAM compiler). The interface
+    // (sram_cen, sram_wen, sram_addr, sram_wmask, sram_din, sram_dout)
+    // is designed to match the standard SRAM macro interface.
     reg [31:0] mem [0:DEPTH-1];
 
     always @(posedge clk) begin

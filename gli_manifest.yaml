@@ -1,0 +1,31 @@
+design_name: mac_top
+rtl_files:
+  - examples/Mini-MaC/rtl/accel/mac_top.v
+  - examples/Mini-MaC/rtl/accel/systolic_array.v
+  - examples/Mini-MaC/rtl/accel/pe.v
+  - examples/Mini-MaC/rtl/accel/mac_regs.v
+top_module: mac_top
+backend: openroad
+pdk: sky130
+pdk_variant: sky130A
+clock_port: clk
+clock_period_ns: 10.0
+constraints:
+  - examples/Mini-MaC/constraints/mac.sdc
+threads: 4
+corners:
+  - name: worst
+    type: worst
+    process: slow
+    voltage: 1.62
+    temperature: 125
+  - name: typical
+    type: typical
+    process: typical
+    voltage: 1.80
+    temperature: 25
+  - name: best
+    type: best
+    process: fast
+    voltage: 1.95
+    temperature: -40

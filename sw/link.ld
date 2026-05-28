@@ -5,7 +5,7 @@ MEMORY
     /* Boot ROM: Instructions and Constants (§16.2) */
     rom (rx)  : ORIGIN = 0x00000000, LENGTH = 4K
     /* SRAM: Data, BSS, and Stack (§16.2) */
-    ram (rwx) : ORIGIN = 0x20000000, LENGTH = 8K
+    ram (rwx) : ORIGIN = 0x10000000, LENGTH = 8K
 }
 
 STACK_SIZE = 2K;
